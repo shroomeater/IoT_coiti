@@ -1,21 +1,68 @@
-// Declación de variables
-	unsigned long tiempo;
-	
-	//	Dentro de setup inicializamos tiempo
+const int pinRojo=9;
+const int pinAmarillo=10;
+const int pinVerde=11;
+unsigned long tiempo;
+
+
+int Trojo=2000;
+int Tamarillo=1500;
+int Tverde=2000;
+int Tespera=200;
+const int pinPulsadorA=4;
+
+void setup()
+{
+for (int i=9; i<12;i++)pinMode(i,OUTPUT);
+ pinMode(pinPulsadorA, INPUT_PULLUP);
+ //	Dentro de setup inicializamos tiempo
 	tiempo = millis();
-	
-	// Dentro de la función semáforo
+
+
+}
+
+void loop()
+{
+
+if (digitalRead(pinPulsadorA)==LOW)
+
+{
+
 	if ((millis() - tiempo) < tiempoVerde)
 	{
-		enciendo verde, apago ambar y apago rojo
+		//enciendo verde, apago ambar y apago rojo
+		digitalWrite(pinVerde,HIGH);
+		digitalWrite(pinAmarillo,LOW);
+		digitalWrite(pinRojo,LOW);
 	}
 	else if ((millis() - tiempo) < (tiempoVerde + tiempoAmbar))
 	{
-		apago verde, enciendo ambar y apago rojo
+		//apago verde, enciendo ambar y apago rojo
+		digitalWrite(pinVerde,LOW);
+		digitalWrite(pinAmarillo,HIGH);
+		digitalWrite(pinRojo,LOW);
 	}	
 	else if ((millis() - tiempo) < (tiempoVerde + tiempoAmbar + tiempoRojo))
 	{
-		apago verde, apago ambar y enciendo rojo
+		//apago verde, apago ambar y enciendo rojo
+		digitalWrite(pinVerde,LOW);
+		digitalWrite(pinAmarillo,LOW);
+		digitalWrite(pinRojo,HIGH);
 	}
 	// cuando trascurre un ciclo inicializamos tiempo
 	else tiempo = millis();
+ 
+}
+
+}
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
