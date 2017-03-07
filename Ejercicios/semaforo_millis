@@ -1,0 +1,21 @@
+// Declación de variables
+	unsigned long tiempo;
+	
+	//	Dentro de setup inicializamos tiempo
+	tiempo = millis();
+	
+	// Dentro de la función semáforo
+	if ((millis() - tiempo) < tiempoVerde)
+	{
+		enciendo verde, apago ambar y apago rojo
+	}
+	else if ((millis() - tiempo) < (tiempoVerde + tiempoAmbar))
+	{
+		apago verde, enciendo ambar y apago rojo
+	}	
+	else if ((millis() - tiempo) < (tiempoVerde + tiempoAmbar + tiempoRojo))
+	{
+		apago verde, apago ambar y enciendo rojo
+	}
+	// cuando trascurre un ciclo inicializamos tiempo
+	else tiempo = millis();
