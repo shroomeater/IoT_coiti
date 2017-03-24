@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 
-const char*ssid = "SOLTEC 2,5G";
-const char* password = "10081971";
+const char*ssid = "*_*";
+const char* password = "^_^";
 int LED = D4;
 WiFiServer server(80);
 
